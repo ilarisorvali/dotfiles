@@ -1,0 +1,14 @@
+#Theme
+theme = Dracula
+
+font-family = MonaspiceAr
+font-size = 14
+
+cursor-style = block
+
+window-decoration = auto
+
+shell-integration = detect
+
+clipboard-read = allow
+clipboard-write = allow

@@ -1,0 +1,112 @@
+* {
+    font-family: JetBrainsMono NF;
+    font-size: 17px;
+    font-weight: bold;
+    min-height: 0;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+#waybar {
+    background: transparent;
+    color: #e5e5e5;
+}
+
+#backlight,
+#battery,
+#network,
+#clock,
+#pulseaudio,
+#temperature,
+#cpu,
+#memory,
+#custom-power {
+    background-color: #262626;
+    padding: 10px 10px;
+    margin: 2px 0;
+}
+
+#workspaces {
+    background-color: #262626;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin: 2px 0;
+}
+
+#workspaces button {
+    background-color: #262626;
+    transition: all 0.5s ease;
+    border-style: solid;
+    color: #cbd5e1;
+    border: 2px solid #e5e5e5;
+    min-width: 26px;
+    border-radius: 0;
+    font-weight: bold;
+    padding: 0.2rem 0.2rem;
+    margin: 0px 4px;
+}
+
+#workspaces button.active {
+    background: #525252; /* optional color */
+    color: #a78bfa; /* optional contrast */
+}
+
+#workspaces button:hover {
+    background: #1e1e1e;
+    border: 0px solid transparent;
+}
+
+#clock {
+    border-radius: 5px;
+}
+
+#battery {
+    padding: 0 10px;
+    transition: 0.3s;
+}
+
+#temperature.warning {
+    color: #ea580c; /* yellow */
+}
+
+#temperature.critical {
+    color: #dc2626; /* red */
+    font-weight: bold;
+}
+
+/* Full */
+#battery.full {
+    color: #16a34a;
+}
+
+/* Medium */
+#battery.medium {
+    color: #fdba74; /* soft peach */
+}
+
+/* Low */
+#battery.low {
+    color: #ea580c; /* orange */
+    font-weight: bold;
+}
+
+/* Critical */
+#battery.critical {
+    color: #dc2626; /* red */
+    font-weight: bold;
+}
+
+/* Charging (always yellow, overrides other states) */
+#battery.charging {
+    color: #f9e2af; /* yellow */
+    font-weight: bold;
+}
+
+#pulseaudio {
+    border-radius: 5px 0px 0px 5px;
+}
+
+#custom-power {
+    border-radius: 0px 5px 5px 0px;
+    color: #e78284;
+}
