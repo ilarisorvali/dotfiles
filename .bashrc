@@ -26,16 +26,6 @@ bind 'TAB:menu-complete'
 shopt -s checkwinsize
 shopt -s globstar
 
-# Dotfiles status check
-dotfiles_status="$(dot status)"
-if ! echo "$dotfiles_status" | grep -q "nothing to commit"; then
-  echo 'There are dotfiles changes to commit. Run "dotfiles status" to see them.'
-fi
-
-if echo "$dotfiles_status" | grep -q "Your branch is ahead"; then
-  echo 'There are dotfiles commits to push. Run "dotfiles log" to see recent commits.'
-fi
-
 # Common aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -58,8 +48,20 @@ alias jcb='journalctl -b'
 alias jce='journalctl -xe'
 
 #Dotfiles management alias
-alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Default editor
 export EDITOR=neovim
 export PATH=$PATH:/home/ilari/.local/bin
+
+# Dotfiles status check
+dotfiles_status="$(config status)"
+if ! echo "$dotfiles_status" | grep -q "nothing to commit"; then
+  echo 'There are dotfiles changes to commit. Run "config status" to see them.'
+fi
+
+if echo "$dotfiles_status" | grep -q "Your branch is ahead"; then
+  echo 'There are dotfiles commits to push. Run "config log" to see recent commits.'
+fi
+
+
