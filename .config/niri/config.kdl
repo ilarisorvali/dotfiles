@@ -84,7 +84,7 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "DP-3" {
+output "Samsung Electric Company U28E570 H4LMB00693" {
     // Uncomment this line to disable this output.
     // off
 
@@ -115,10 +115,17 @@ output "DP-3" {
     position x=0 y=0
 }
 
-output "DP-2" {
+output "Dell Inc. DELL U2410 F525M9BJ2KTL" {
 	mode "1920x1200"
 	scale 1
 	transform "90"
+
+	layout {
+	    struts {
+                left 0
+	        right 0
+	    }
+        }
 }
 
 // Settings that influence how windows are positioned and sized.
