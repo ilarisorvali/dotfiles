@@ -28,7 +28,6 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 # Syntax highlighting (must be last)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
-echo "ZSH LOADED"
 
 # Common aliases
 alias ll='ls -alF'

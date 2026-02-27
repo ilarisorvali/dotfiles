@@ -58,7 +58,7 @@
         "position": "top",
         "screenOverrides": [
             {
-                "enabled": true,
+                "enabled": false,
                 "name": "DP-2",
                 "widgets": {
                     "center": [
