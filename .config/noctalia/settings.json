@@ -52,10 +52,42 @@
         "marginHorizontal": 4,
         "marginVertical": 4,
         "monitors": [
+            "DP-3"
         ],
         "outerCorners": true,
         "position": "top",
         "screenOverrides": [
+            {
+                "enabled": true,
+                "name": "DP-2",
+                "widgets": {
+                    "center": [
+                    ],
+                    "left": [
+                        {
+                            "characterCount": 2,
+                            "colorizeIcons": false,
+                            "emptyColor": "secondary",
+                            "enableScrollWheel": true,
+                            "focusedColor": "primary",
+                            "followFocusedScreen": false,
+                            "groupedBorderOpacity": 1,
+                            "hideUnoccupied": false,
+                            "iconScale": 0.8,
+                            "id": "Workspace",
+                            "labelMode": "index",
+                            "occupiedColor": "secondary",
+                            "pillSize": 0.6,
+                            "showApplications": false,
+                            "showBadge": true,
+                            "showLabelsOnlyWhenOccupied": true,
+                            "unfocusedIconsOpacity": 1
+                        }
+                    ],
+                    "right": [
+                    ]
+                }
+            }
         ],
         "showCapsule": true,
         "showOutline": false,
@@ -66,9 +98,9 @@
                     "colorizeIcons": false,
                     "hideMode": "hidden",
                     "id": "ActiveWindow",
-                    "maxWidth": 145,
+                    "maxWidth": 200,
                     "scrollingMode": "hover",
-                    "showIcon": true,
+                    "showIcon": false,
                     "textColor": "none",
                     "useFixedWidth": false
                 },
@@ -134,7 +166,7 @@
                     "unreadBadgeColor": "primary"
                 },
                 {
-                    "displayMode": "onhover",
+                    "displayMode": "alwaysShow",
                     "iconColor": "none",
                     "id": "Volume",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
@@ -172,6 +204,10 @@
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": false
+                },
+                {
+                    "iconColor": "error",
+                    "id": "SessionMenu"
                 }
             ]
         }
@@ -285,7 +321,7 @@
         "deadOpacity": 0.6,
         "displayMode": "auto_hide",
         "dockType": "floating",
-        "enabled": true,
+        "enabled": false,
         "floatingRatio": 1,
         "inactiveIndicators": false,
         "monitors": [
@@ -343,7 +379,7 @@
         "lockOnSuspend": true,
         "lockScreenAnimations": false,
         "lockScreenBlur": 0,
-        "lockScreenCountdownDuration": 10000,
+        "lockScreenCountdownDuration": 5000,
         "lockScreenMonitors": [
         ],
         "lockScreenTint": 0,
@@ -402,7 +438,7 @@
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "nightTemp": "4000"
+        "nightTemp": "2813"
     },
     "notifications": {
         "backgroundOpacity": 1,
@@ -559,7 +595,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/ilari/Pictures/Wallpapers/Berk",
+        "directory": "/home/ilari/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [

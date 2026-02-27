@@ -1,30 +1,34 @@
-# Exit if not running interactively
-[[ $- != *i* ]] && return
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/ilari/.zshrc'
 
-# History
-HISTSIZE=10000
-HISTFILESIZE=20000
-HISTCONTROL=ignoredups:erasedups
-shopt -s histappend
+autoload -Uz compinit
+compinit
+zstyle ':completion:' menu select
 
-# Prompt (simple)
-PS1='\u@\h:\w\$ '
+#git prompt
+autoload -Uz vcs_info
+precmd() { vcs_info }
 
-# Enable bash completion
-if [ -f /etc/bash_completion ]; then
-  . /etc/bash_completion
-elif [ -f /usr/share/bash-completion/bash_completion ]; then
-  . /usr/share/bash-completion/bash_completion
-fi
+zstyle ':vcs_info:git:*' formats ' (%b)'
+zstyle ':vcs_info:*' enable git
 
-# Readline / tab completion behavior
-bind 'set completion-ignore-case on'
-bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
+setopt PROMPT_SUBST
 
-# Useful shell options
-shopt -s checkwinsize
-shopt -s globstar
+PROMPT='%F{cyan}%n@%m%f %F{yellow}%~%f%F{magenta}${vcs_info_msg_0_}%f %# '
+
+# Autosuggestions
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+
+# Syntax highlighting (must be last)
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+echo "ZSH LOADED"
 
 # Common aliases
 alias ll='ls -alF'
@@ -67,5 +71,5 @@ if echo "$dotfiles_status" | grep -q "Your branch is ahead"; then
   echo 'There are dotfiles commits to push. Run "config log" to see recent commits.'
 fi
 
-
-. "$HOME/.cargo/env"
+# Rust environment
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"

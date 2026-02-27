@@ -75,7 +75,7 @@ input {
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    focus-follows-mouse max-scroll-amount="10%"
+    focus-follows-mouse max-scroll-amount="20%"
 }
 
 // You can configure outputs by their name, which you can find
@@ -185,7 +185,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#818cf8"
+        active-color "oklch(36.4% 0.029 323.89)"
 
         // Color of the ring on inactive monitors.
         //
@@ -216,7 +216,7 @@ layout {
         // off
 
         width 4
-        active-color "#ffc87f"
+        //active-color "oklch(74.6% 0.16 232.661)"
         inactive-color "#e7e5e4"
 
         // Color of the border around windows that request your attention.
@@ -225,7 +225,7 @@ layout {
         // Gradients can use a few different interpolation color spaces.
         // For example, this is a pastel rainbow gradient via in="oklch longer hue".
         //
-        // active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
+        active-gradient from="oklch(64.6% 0.222 41.116)" to="oklch(55.8% 0.288 302.321)" angle=45 relative-to="workspace-view" in="oklch longer hue"
 
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
@@ -273,7 +273,7 @@ layout {
     // Top and bottom struts will simply add outer gaps in addition to the area occupied by
     // layer-shell panels and regular gaps.
     struts {
-        // left 64
+        left 32
         right 32
         // top 64
         // bottom 64
@@ -386,8 +386,8 @@ window-rule {
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
+window-rule {
+    geometry-corner-radius 4
     clip-to-geometry true
 }
 
@@ -407,8 +407,10 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    // Super+L 
     Super+Alt+L hotkey-overlay-title="Lock the Screen: Noctalia screenlock" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu lockAndSuspend"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
