@@ -121,6 +121,7 @@ output "Dell Inc. DELL U2410 F525M9BJ2KTL" {
 	transform "90"
 
 	layout {
+            gaps 0
 	    struts {
                 left 0
 	        right 0
