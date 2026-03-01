@@ -84,7 +84,7 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "DP-3" {
+output "Samsung Electric Company U28E570 H4LMB00693" {
     // Uncomment this line to disable this output.
     // off
 
@@ -115,10 +115,24 @@ output "DP-3" {
     position x=0 y=0
 }
 
-output "DP-2" {
+output "Dell Inc. DELL U2410 F525M9BJ2KTL" {
 	mode "1920x1200"
 	scale 1
 	transform "90"
+
+	layout {
+            always-center-single-column false
+            gaps 0
+	    struts {
+                left 0
+	        right 0
+	    }
+        }
+}
+
+output "eDP-1" {
+    mode "1920x1080"
+    scale 1
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -278,6 +292,19 @@ layout {
         // top 64
         // bottom 64
     }
+
+    tab-indicator {
+        //off
+	on
+	hide-when-single-tab
+	//place-within-column
+	gap 2
+	width 6
+	position "left"
+        active-color "#9A4283"
+        inactive-color "#391F5C"
+        
+    }
 }
 
 recent-windows {
@@ -320,7 +347,7 @@ recent-windows {
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -328,7 +355,6 @@ hotkey-overlay {
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -363,6 +389,19 @@ window-rule {
     default-column-width {}
 }
 
+window-rule {
+    match app-id="Alacritty"
+    draw-border-with-background false
+
+}
+
+//floating media viewer, in telegram, slack, etc.
+window-rule {
+
+    match title="Media viewer"
+    open-floating true
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -370,6 +409,7 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
+    open-maximized false
 }
 
 // Example: block out two password managers from screen capture.
@@ -389,6 +429,12 @@ window-rule {
 window-rule {
     geometry-corner-radius 4
     clip-to-geometry true
+}
+
+window-rule {
+    open-on-output "Dell Inc. DELL U2410 F525M9BJ2KTL"
+    match app-id="google-chrome"
+    open-maximized true
 }
 
 binds {
@@ -527,8 +573,8 @@ binds {
     // To avoid scrolling through workspaces really fast, you can use
     // the cooldown-ms property. The bind will be rate-limited to this value.
     // You can set a cooldown on any bind, but it's most useful for the wheel.
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+Shift+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
@@ -539,8 +585,8 @@ binds {
 
     // Usually scrolling up and down with Shift in applications results in
     // horizontal scrolling; these binds replicate that.
-    Mod+Shift+WheelScrollDown      { focus-column-right; }
-    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+WheelScrollDown      { focus-column-right; }
+    Mod+WheelScrollUp        { focus-column-left; }
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
