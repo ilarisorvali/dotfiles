@@ -17,6 +17,7 @@ precmd() { vcs_info }
 
 zstyle ':vcs_info:git:*' formats ' (%b)'
 zstyle ':vcs_info:*' enable git
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 setopt PROMPT_SUBST
 

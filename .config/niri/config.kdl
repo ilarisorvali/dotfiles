@@ -121,6 +121,7 @@ output "Dell Inc. DELL U2410 F525M9BJ2KTL" {
 	transform "90"
 
 	layout {
+            always-center-single-column false
             gaps 0
 	    struts {
                 left 0
@@ -286,6 +287,19 @@ layout {
         // top 64
         // bottom 64
     }
+
+    tab-indicator {
+        //off
+	on
+	hide-when-single-tab
+	place-within-column
+	gap 2
+	width 5
+	position "left"
+        active-color "oklch(58.5% 0.233 277.117)"
+        inactive-color "oklch(25.7% 0.09 281.288)"
+        
+    }
 }
 
 recent-windows {
@@ -370,6 +384,12 @@ window-rule {
     default-column-width {}
 }
 
+window-rule {
+    match app-id="Alacritty"
+    draw-border-with-background false
+
+}
+
 //floating media viewer, in telegram, slack, etc.
 window-rule {
 
@@ -404,6 +424,12 @@ window-rule {
 window-rule {
     geometry-corner-radius 4
     clip-to-geometry true
+}
+
+window-rule {
+    open-on-output "Dell Inc. DELL U2410 F525M9BJ2KTL"
+    match app-id="google-chrome"
+    open-maximized true
 }
 
 binds {
@@ -542,8 +568,8 @@ binds {
     // To avoid scrolling through workspaces really fast, you can use
     // the cooldown-ms property. The bind will be rate-limited to this value.
     // You can set a cooldown on any bind, but it's most useful for the wheel.
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+Shift+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
@@ -554,8 +580,8 @@ binds {
 
     // Usually scrolling up and down with Shift in applications results in
     // horizontal scrolling; these binds replicate that.
-    Mod+Shift+WheelScrollDown      { focus-column-right; }
-    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+WheelScrollDown      { focus-column-right; }
+    Mod+WheelScrollUp        { focus-column-left; }
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
