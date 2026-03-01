@@ -130,6 +130,11 @@ output "Dell Inc. DELL U2410 F525M9BJ2KTL" {
         }
 }
 
+output "eDP-1" {
+    mode "1920x1080"
+    scale 1
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
@@ -292,12 +297,12 @@ layout {
         //off
 	on
 	hide-when-single-tab
-	place-within-column
+	//place-within-column
 	gap 2
-	width 5
+	width 6
 	position "left"
-        active-color "oklch(58.5% 0.233 277.117)"
-        inactive-color "oklch(25.7% 0.09 281.288)"
+        active-color "#9A4283"
+        inactive-color "#391F5C"
         
     }
 }
